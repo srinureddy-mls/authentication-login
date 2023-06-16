@@ -1,0 +1,201 @@
+Node.js setup 
+
+step-1 
+open terminal and enter the syntax of
+
+npm init 
+
+step-2 
+create a file with extenstion of .js 
+
+server.js
+
+step-3 
+install the required package by using the npm 
+(Node Package Manager)
+npm install express,
+npm install mongoose,
+npm install nodemon ,
+npm install cors,
+npm install jsonwebtoken
+
+step-4 
+goto package.json file change some scripts changes 
+
+"scripts": {
+    "start":"node server.js",
+    "server":"nodemon server",
+}
+
+step-5
+connect the server  with port number 5000
+
+app.listen(5000,()=>console.log("Server running .....!"))
+
+step-6 
+check the server is connected or not'connected 
+
+npm run server
+
+step-8 
+connect the databse (mongoose) (About mongodb setup explanation in below)
+
+mongoose.connect('mongodb+srv://srinureddy:srinureddy@cluster0.nwxf3wp.mongodb.net/?retryWrites=true&w=majority',{
+})
+.then( ()=> console.log('dB connected ...!')
+).catch(err =>console.log(err))
+
+check the datadase is connected or not'connected 
+npm run server
+
+output:
+	Server running .....!
+	dB connected ...!
+
+step-9
+
+Now Start the CRUD operations 
+
+Before starting create a file model.js
+In this model.js file we will write Schema
+
+(A mongoose schema defines the shape of documents
+ inside a particular collection)
+and export module  
+
+get,post,delete,update 
+
+example:GET 
+app.get('/allusers' ,async(req,res)=>{
+    try{
+        let allusers=await devuser.find();
+        return res.json(allusers);
+
+    }
+    catch(err){
+        console.log(err);
+        return res.status(500).send('server error')
+       }
+})
+
+step-10 
+By using Postman API Platform
+
+check your API's working condition 
+EX:
+POST,GET,DELETE,UPDATE
+
+Now comming to frontend setup 
+
+step-1
+In same terminal 
+
+npx create-react-app (appname) 
+the appname is 'client'
+syantax:
+npx create-react-app client 
+
+step-2 
+After createing react app 
+Open new terminal 
+cd client 
+Befor 
+PS D:\authentication_login> 
+
+PS D:\authentication_login> cd client
+After 
+PS D:\authentication_login\client>  
+
+check the react app is working or not
+ 
+npm start
+ 
+output:
+react logo will display on UI 
+
+step-3 
+Install some librarys in react-app
+npm install react-router-dom
+npm install axios 
+
+What is axios :Axios is a library that serves to create HTTP requests
+that are present externally.
+
+SetUp route path  in app.js file
+
+by this setup import BrowerRouter,Route,Routes
+
+step-4 
+In src folder 
+i am creating Login.js,Home.js and Register.js files 
+
+The Home.js file is using to create Home UI page 
+step-4.1
+Login.js  file is using to develop the Login UI page
+
+In the login.js file  import one library called axios 
+
+step-4.2
+Register.js file is using to develop the Registration UI page
+
+In the Register.js file  import one library called axios 
+
+step-5 
+import the home,login,register files in  app.js file 
+
+and Set the route path 
+
+step-6
+Now run the server and react-app in different terminals 
+
+By running the server npm run server
+
+By running the react npm start
+
+
+mongodb setup 
+
+Open the link https://cloud.mongodb.com. 
+
+select first one and..
+
+create an account 
+
+enter username and password
+
+click on finish
+
+goto Database and click on connect-- select drivers option 
+
+3.add your connction...
+copy url  and paste it node-->server.js-->mongodb.connect('paste url here')
+
+Note:change the password. 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
